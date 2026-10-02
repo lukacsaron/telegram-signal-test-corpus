@@ -1,0 +1,23 @@
+{
+  "id": "direction-first-price-block",
+  "source": "spec",
+  "layout": "direction first, price block below",
+  "message": "XAUUSD (Gold)\nBUY NOW\n4346-4344\n\nTP 1: 4350\nTP 2: 4354\nTP 3: 4360\nStop Loss: 4342",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "zone",
+      "low": 4344,
+      "high": 4346
+    },
+    "stopLoss": 4342,
+    "takeProfits": [
+      4350,
+      4354,
+      4360
+    ],
+    "runner": false
+  }
+}

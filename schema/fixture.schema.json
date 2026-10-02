@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lukacsaron/telegram-signal-test-corpus/schema/fixture.schema.json",
+  "title": "Telegram signal fixture",
+  "description": "One Telegram message and the reading this corpus proposes for it.",
+  "type": "object",
+  "required": ["id", "source", "layout", "message", "expected"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "source": {
+      "enum": ["spec", "synthetic"],
+      "description": "spec: a message shape quoted in telegram-signal-format. synthetic: written for this corpus to exercise one tolerance rule."
+    },
+    "layout": { "type": "string" },
+    "message": { "type": "string", "minLength": 1 },
+    "replyTo": { "type": "string", "description": "The fixture id, or a description, of the message this one replies to." },
+    "note": { "type": "string" },
+    "expected": {
+      "oneOf": [
+        { "$ref": "#/$defs/newTrade" },
+        { "$ref": "#/$defs/details" },
+        { "$ref": "#/$defs/modification" }
+      ]
+    }
+  },
+  "$defs": {
+    "entry": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind"],
+          "additionalProperties": false,
+          "properties": { "kind": { "const": "market" } }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "price"],
+          "additionalProperties": false,
+          "properties": { "kind": { "const": "price" }, "price": { "type": "number" } }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "low", "high"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "zone" },
+            "low": { "type": "number" },
+            "high": { "type": "number" }
+          }
+        }
+      ]
+    },
+    "takeProfits": {
+      "type": "array",
+      "maxItems": 6,
+      "items": { "type": "number" },
+      "description": "In the order written. The first is TP1."
+    },
+    "newTrade": {
+      "type": "object",
+      "required": ["type", "direction", "symbol", "entry", "stopLoss", "takeProfits", "runner"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "new_trade" },
+        "direction": { "enum": ["buy", "sell"] },
+        "symbol": { "type": "string", "pattern": "^[A-Z0-9]+$" },
+        "entry": { "$ref": "#/$defs/entry" },
+        "stopLoss": { "type": ["number", "null"], "description": "null when the message writes no stop." },
+        "takeProfits": { "$ref": "#/$defs/takeProfits" },
+        "runner": { "type": "boolean", "description": "true when the message leaves a target open, such as TP4: Hold." }
+      }
+    },
+    "details": {
+      "type": "object",
+      "required": ["type", "entry", "stopLoss", "takeProfits", "runner"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "details" },
+        "entry": { "$ref": "#/$defs/entry" },
+        "stopLoss": { "type": ["number", "null"] },
+        "takeProfits": { "$ref": "#/$defs/takeProfits" },
+        "runner": { "type": "boolean" }
+      }
+    },
+    "modification": {
+      "type": "object",
+      "required": ["type", "actions"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "modification" },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["breakeven", "partial_close", "close", "move_stop", "move_target"] }
+        }
+      }
+    }
+  }
+}

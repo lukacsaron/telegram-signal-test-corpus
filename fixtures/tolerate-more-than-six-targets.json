@@ -1,0 +1,26 @@
+{
+  "id": "tolerate-more-than-six-targets",
+  "source": "synthetic",
+  "layout": "tolerance",
+  "message": "BUY XAUUSD 4329\nSL 4320\nTP 4334\nTP 4339\nTP 4344\nTP 4349\nTP 4354\nTP 4359\nTP 4364\nTP 4369",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "price",
+      "price": 4329
+    },
+    "stopLoss": 4320,
+    "takeProfits": [
+      4334,
+      4339,
+      4344,
+      4349,
+      4354,
+      4359
+    ],
+    "runner": false
+  },
+  "note": "Eight targets are written. The first six are used and the message is not rejected."
+}

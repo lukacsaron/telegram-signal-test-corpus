@@ -1,0 +1,18 @@
+{
+  "id": "market-no-levels",
+  "source": "spec",
+  "layout": "minimum",
+  "message": "Sell gold now",
+  "expected": {
+    "type": "new_trade",
+    "direction": "sell",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "market"
+    },
+    "stopLoss": null,
+    "takeProfits": [],
+    "runner": false
+  },
+  "note": "Valid with two fields. No stop is written, so any stop a reader applies is inferred."
+}

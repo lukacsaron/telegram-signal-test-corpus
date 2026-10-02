@@ -1,0 +1,13 @@
+{
+  "id": "manage-breakeven-long",
+  "source": "spec",
+  "layout": "management",
+  "replyTo": "any open trade",
+  "message": "Set Breakeven at lower Part",
+  "expected": {
+    "type": "modification",
+    "actions": [
+      "breakeven"
+    ]
+  }
+}

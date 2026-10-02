@@ -1,0 +1,22 @@
+{
+  "id": "tolerate-slash-zone",
+  "source": "synthetic",
+  "layout": "tolerance",
+  "message": "GOLD BUY 4438/4433\nSL 4428\nTP1 4443",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "zone",
+      "low": 4433,
+      "high": 4438
+    },
+    "stopLoss": 4428,
+    "takeProfits": [
+      4443
+    ],
+    "runner": false
+  },
+  "note": "A slash separates the two zone edges."
+}

@@ -1,0 +1,22 @@
+{
+  "id": "labelled-fields",
+  "source": "spec",
+  "layout": "labelled fields",
+  "message": "BUY XAUUSD\n\nEntry: 4345.16\n\nSL: 4330.16\nTP1: 4350.16\nTP2: 4355.16\nTP3: 4385.16",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "price",
+      "price": 4345.16
+    },
+    "stopLoss": 4330.16,
+    "takeProfits": [
+      4350.16,
+      4355.16,
+      4385.16
+    ],
+    "runner": false
+  }
+}

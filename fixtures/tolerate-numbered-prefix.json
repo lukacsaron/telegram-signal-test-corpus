@@ -1,0 +1,21 @@
+{
+  "id": "tolerate-numbered-prefix",
+  "source": "synthetic",
+  "layout": "tolerance",
+  "message": "3. GOLD BUY SETUP\nEntry 4438\nSL 4428\nTP1 4443",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "price",
+      "price": 4438
+    },
+    "stopLoss": 4428,
+    "takeProfits": [
+      4443
+    ],
+    "runner": false
+  },
+  "note": "The numbered, titled prefix is skipped."
+}

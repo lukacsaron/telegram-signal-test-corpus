@@ -1,0 +1,22 @@
+{
+  "id": "alert-details-reply",
+  "source": "spec",
+  "layout": "alert first, details later",
+  "replyTo": "alert-only",
+  "message": "Entry 4438-4433\nSL 4428\nTP1 4443\nTP2 4448",
+  "expected": {
+    "type": "details",
+    "entry": {
+      "kind": "zone",
+      "low": 4433,
+      "high": 4438
+    },
+    "stopLoss": 4428,
+    "takeProfits": [
+      4443,
+      4448
+    ],
+    "runner": false
+  },
+  "note": "Carries no direction or symbol. Both come from the message it replies to."
+}

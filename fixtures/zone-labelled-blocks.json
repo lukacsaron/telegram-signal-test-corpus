@@ -1,0 +1,22 @@
+{
+  "id": "zone-labelled-blocks",
+  "source": "spec",
+  "layout": "zone with labelled blocks",
+  "message": "SELL XAUUSD @ 4626-4629\n\nSL 4632\n\nTP1 4623\nTP2 4620",
+  "expected": {
+    "type": "new_trade",
+    "direction": "sell",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "zone",
+      "low": 4626,
+      "high": 4629
+    },
+    "stopLoss": 4632,
+    "takeProfits": [
+      4623,
+      4620
+    ],
+    "runner": false
+  }
+}

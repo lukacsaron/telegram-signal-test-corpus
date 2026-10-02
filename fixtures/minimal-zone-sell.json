@@ -1,0 +1,22 @@
+{
+  "id": "minimal-zone-sell",
+  "source": "spec",
+  "layout": "minimum",
+  "message": "SELL XAUUSD 4626-4629\nSL 4632\nTP1 4623\nTP2 4620",
+  "expected": {
+    "type": "new_trade",
+    "direction": "sell",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "zone",
+      "low": 4626,
+      "high": 4629
+    },
+    "stopLoss": 4632,
+    "takeProfits": [
+      4623,
+      4620
+    ],
+    "runner": false
+  }
+}

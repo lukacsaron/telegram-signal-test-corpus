@@ -1,0 +1,24 @@
+{
+  "id": "bare-inline-repeated-tp",
+  "source": "spec",
+  "layout": "bare inline, repeated target keyword",
+  "message": "XAUUSD BUY 4329\n\nTP 4334\nTP 4339\nTP 4344\nTP 4350 OPEN\n\nSL 4320",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "price",
+      "price": 4329
+    },
+    "stopLoss": 4320,
+    "takeProfits": [
+      4334,
+      4339,
+      4344,
+      4350
+    ],
+    "runner": true
+  },
+  "note": "Ambiguous on purpose. This corpus keeps 4350 as the fourth target and flags a runner because of the word OPEN. A reader that treats the line as a runner with no fourth target is also defensible."
+}

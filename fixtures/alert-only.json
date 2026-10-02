@@ -1,0 +1,18 @@
+{
+  "id": "alert-only",
+  "source": "spec",
+  "layout": "alert first, details later",
+  "message": "GOLD BUY NOW",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "market"
+    },
+    "stopLoss": null,
+    "takeProfits": [],
+    "runner": false
+  },
+  "note": "First half of an alert-then-details pair. See alert-details-reply."
+}

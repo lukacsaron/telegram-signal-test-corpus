@@ -1,0 +1,21 @@
+{
+  "id": "tolerate-misspelt-stop",
+  "source": "synthetic",
+  "layout": "tolerance",
+  "message": "BUY XAUUSD 4345\nStop Lose 4330\nTP 4350",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "price",
+      "price": 4345
+    },
+    "stopLoss": 4330,
+    "takeProfits": [
+      4350
+    ],
+    "runner": false
+  },
+  "note": "Stop Lose, Stoploss, S/L and SL : all read as the stop."
+}

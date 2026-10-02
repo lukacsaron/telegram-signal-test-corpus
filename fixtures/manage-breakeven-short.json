@@ -1,0 +1,13 @@
+{
+  "id": "manage-breakeven-short",
+  "source": "spec",
+  "layout": "management",
+  "replyTo": "any open trade",
+  "message": "Move sl to Be",
+  "expected": {
+    "type": "modification",
+    "actions": [
+      "breakeven"
+    ]
+  }
+}

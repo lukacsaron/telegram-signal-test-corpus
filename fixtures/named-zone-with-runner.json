@@ -1,0 +1,24 @@
+{
+  "id": "named-zone-with-runner",
+  "source": "spec",
+  "layout": "named zone on its own line",
+  "message": "GOLD BUY SETUP\n\nGold Buy Zone 4438 - 4433\n\nSL: 4428\n\nTP1: 4443\nTP2: 4448\nTP3: 4453\nTP4: Hold",
+  "expected": {
+    "type": "new_trade",
+    "direction": "buy",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "zone",
+      "low": 4433,
+      "high": 4438
+    },
+    "stopLoss": 4428,
+    "takeProfits": [
+      4443,
+      4448,
+      4453
+    ],
+    "runner": true
+  },
+  "note": "TP4: Hold is a runner. No numeric fourth target is invented. GOLD is normalised to XAUUSD. The zone is written high to low."
+}

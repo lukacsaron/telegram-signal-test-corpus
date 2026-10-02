@@ -1,0 +1,21 @@
+{
+  "id": "tolerate-symbol-glued-to-direction",
+  "source": "synthetic",
+  "layout": "tolerance",
+  "message": "XAUUSDSELL 4626\nSL 4632\nTP 4620",
+  "expected": {
+    "type": "new_trade",
+    "direction": "sell",
+    "symbol": "XAUUSD",
+    "entry": {
+      "kind": "price",
+      "price": 4626
+    },
+    "stopLoss": 4632,
+    "takeProfits": [
+      4620
+    ],
+    "runner": false
+  },
+  "note": "Symbol and direction written with no space."
+}

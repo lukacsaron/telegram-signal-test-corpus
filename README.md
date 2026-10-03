@@ -38,7 +38,7 @@ Eleven fixtures are message shapes quoted in the specification (`"source": "spec
 
 `expected.type` is one of:
 
-- `new_trade`: a message that opens a trade. `entry.kind` is `market`, `price` or `zone`. `stopLoss` is `null` when the message writes no stop.
+- `new_trade`: a message that opens a trade. `entry.kind` is `market`, `price`, or `zone`. `stopLoss` is `null` when the message writes no stop.
 - `details`: the second half of an alert-then-details pair. It carries no direction or symbol; both come from the message named in `replyTo`.
 - `modification`: an instruction about a trade that is already open, such as moving the stop to breakeven.
 

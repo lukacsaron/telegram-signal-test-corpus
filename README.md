@@ -50,6 +50,12 @@ cd telegram-signal-test-corpus
 npm test
 ```
 
+Or install it from [npm](https://www.npmjs.com/package/telegram-signal-test-corpus):
+
+```bash
+npm install --save-dev telegram-signal-test-corpus
+```
+
 In a Node test suite:
 
 ```js
